@@ -12,8 +12,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    //this will determine how many lives the player has
-    public int lives = 3;
+    //this will determine how much health the player has
+    public int health = 99;
     //side to side movement speed
     public float speed = 10f;
     //jump force added when the player presses space
@@ -49,13 +49,10 @@ public class PlayerController : MonoBehaviour
 
         HandleJumping();
     }
-    private void Respawn()
+    private void Die()
     {
-        lives--;
-        //bring player back to startPos
-        transform.position = startPos;
-        //check if player has 0 lives
-        if (lives == 0)
+        //check if player has 0 health
+        if (health == 0)
         {
             SceneManager.LoadScene(2);
         }
