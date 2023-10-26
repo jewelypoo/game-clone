@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rigidbody;
 
-    public bool goingLeft = true; 
+    public bool goingLeft = true;
+    public bool rotateLeft = false;
 
     //location of where the player respawns to
     private Vector3 startPos;
@@ -43,11 +44,13 @@ public class PlayerController : MonoBehaviour
         //left and right player movement
         if (Input.GetKey(KeyCode.A))
         {
+            goingLeft = true;
             Turning();
 
         }
         if (Input.GetKey(KeyCode.D))
         {
+            goingLeft = false;
             Turning();
             
         }
@@ -88,18 +91,26 @@ public class PlayerController : MonoBehaviour
     }
     private void Turning()
     {
-        if (goingLeft == true)
+        if (goingLeft == false)
         {
-            transform.Rotate(Vector2.up * 180);
-            transform.position += transform.right * speed * Time.deltaTime;
+            if (rotateLeft == true)
+            {
+                transform.Rotate(Vector2.up * 180);
+                rotateLeft = false;
+            }
+                transform.position += Vector3.right * speed * Time.deltaTime;
+            
         }
         else
         {
-            if (goingLeft == false)
+            if (rotateLeft == false)
             {
                 transform.Rotate(Vector2.up * 180);
+                rotateLeft = true;
             }
-            transform.position += transform.forward * speed * Time.deltaTime;
+            transform.position += -Vector3.right * speed * Time.deltaTime;
+           
+           
         }
     }
 }
