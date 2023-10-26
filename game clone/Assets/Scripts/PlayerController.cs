@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,25 +43,13 @@ public class PlayerController : MonoBehaviour
         //left and right player movement
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(Vector2.up * 180);
-            if (goingLeft == false)
-            {
-                transform.position += transform.forward * speed * Time.deltaTime;
-            }
-
-            ///else
-            ///   {
-            ///  if (goingLeft == true)
-            ///   {
-            ///    transform.position += transform.forward * speed * Time.deltaTime;
-            ///}
-            ///}
+            Turning();
 
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
-            ///will make it move depending on which way it is facing
-            transform.position += transform.forward * speed * Time.deltaTime;
+            Turning();
+            
         }
 
         HandleJumping();
@@ -96,8 +85,21 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
-
-
+    }
+    private void Turning()
+    {
+        if (goingLeft == true)
+        {
+            transform.Rotate(Vector2.up * 180);
+            transform.position += transform.right * speed * Time.deltaTime;
+        }
+        else
+        {
+            if (goingLeft == false)
+            {
+                transform.Rotate(Vector2.up * 180);
+            }
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }
     }
 }
