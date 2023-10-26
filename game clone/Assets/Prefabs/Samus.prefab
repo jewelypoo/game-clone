@@ -962,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9158247391384028273, guid: 1f558581b23b2434887d23657af8d201, type: 3}
       propertyPath: m_Name
-      value: Samus Variant
+      value: Samus
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -973,10 +973,45 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5956089162793142985, guid: 1f558581b23b2434887d23657af8d201, type: 3}
       insertIndex: 1
       addedObject: {fileID: 754964975224236468}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9158247391384028273, guid: 1f558581b23b2434887d23657af8d201, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7946651784050280812}
   m_SourcePrefab: {fileID: 100100000, guid: 1f558581b23b2434887d23657af8d201, type: 3}
 --- !u!4 &1337291478539043433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5956089162793142985, guid: 1f558581b23b2434887d23657af8d201, type: 3}
   m_PrefabInstance: {fileID: 4622738355978553504}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4557613618148609233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9158247391384028273, guid: 1f558581b23b2434887d23657af8d201, type: 3}
+  m_PrefabInstance: {fileID: 4622738355978553504}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &-7946651784050280812
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557613618148609233}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
