@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rigidbody;
 
+    public bool goingLeft = true; 
+
     //location of where the player respawns to
     private Vector3 startPos;
 
@@ -38,9 +40,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //left and right player movement
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.position += transform.forward * speed * Time.deltaTime;
+            transform.Rotate(Vector2.up * 180);
+            if (goingLeft == false)
+            {
+                transform.position += transform.forward * speed * Time.deltaTime;
+            }
+
+            ///else
+            ///   {
+            ///  if (goingLeft == true)
+            ///   {
+            ///    transform.position += transform.forward * speed * Time.deltaTime;
+            ///}
+            ///}
+
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
