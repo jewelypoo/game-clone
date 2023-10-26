@@ -40,11 +40,12 @@ public class PlayerController : MonoBehaviour
         //left and right player movement
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            ///will make it move depending on which way it is facing
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
 
         HandleJumping();
