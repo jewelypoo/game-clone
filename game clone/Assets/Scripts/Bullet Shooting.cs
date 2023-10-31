@@ -17,12 +17,10 @@ public class BulletShooting : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-       Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
+       if(other.gameObject.tag == "Enemy")
         {
-            enemy.TakeDamage(damage);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
         }
-        Destroy(this.gameObject);
     }
 
    

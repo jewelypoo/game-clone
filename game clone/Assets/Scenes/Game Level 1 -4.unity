@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 870764831}
   - component: {fileID: 870764830}
   - component: {fileID: 870764829}
+  - component: {fileID: 870764834}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -634,7 +635,6 @@ MonoBehaviour:
   rightPoint: {fileID: 393497056}
   speed: 5
   goingLeft: 1
-  health: 50
 --- !u!65 &870764830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -723,6 +723,20 @@ Transform:
   - {fileID: 393497057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870764834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870764828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79686c9c54f2e674883d8706428baa77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 20
+  maxHealth: 20
 --- !u!4 &975541249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6975554564398357411, guid: 848f9c930187f7e449c5680f375f372e, type: 3}

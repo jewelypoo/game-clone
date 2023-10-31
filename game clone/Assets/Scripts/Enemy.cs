@@ -17,8 +17,7 @@ public class Enemy : MonoBehaviour
     public int speed;
     public bool goingLeft;
 
-    public int health;
-
+   
 
     // Start is called before the first frame update
     void Start()
@@ -57,16 +56,15 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
-    public void TakeDamage (int damage)
+    private void OnTriggerEnter(Collider other)
     {
-        health -= damage;
-        if (health <= 0)
+        if (other.gameObject.tag == "Enemy")
         {
-            Destroy(this.gameObject);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
         }
     }
 
 
-    
+
+
 }
