@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BulletShooting : MonoBehaviour
@@ -19,7 +20,12 @@ public class BulletShooting : MonoBehaviour
     {
        if(other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
+            Destroy(this.gameObject);
+        }
+       if (other.gameObject.tag == "Wall")
+        {
+            Destroy(this.gameObject);
         }
     }
 
