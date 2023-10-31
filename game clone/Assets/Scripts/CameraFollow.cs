@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Vector3 cameraOffset;
+    private Vector3 cameraOffset;
     public GameObject targetObject;
     // Start is called before the first frame update
     void Start()
