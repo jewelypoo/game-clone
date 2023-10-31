@@ -8,8 +8,8 @@ using UnityEngine;
  */
 public class Enemy : MonoBehaviour
 {
-  //  public GameObject leftPoint;
-  //  public GameObject rightPoint;
+     public GameObject leftPoint;
+     public GameObject rightPoint;
 
     private Vector3 leftPos;
     private Vector3 rightPos;
@@ -23,8 +23,8 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // leftPos = leftPoint.transform.position;
-       // rightPos = rightPoint.transform.position;
+         leftPos = leftPoint.transform.position;
+        rightPos = rightPoint.transform.position;
     }
 
     // Update is called once per frame
