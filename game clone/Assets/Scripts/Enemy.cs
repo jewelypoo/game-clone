@@ -8,8 +8,8 @@ using UnityEngine;
  */
 public class Enemy : MonoBehaviour
 {
-    public GameObject leftPoint;
-    public GameObject rightPoint;
+  //  public GameObject leftPoint;
+  //  public GameObject rightPoint;
 
     private Vector3 leftPos;
     private Vector3 rightPos;
@@ -17,17 +17,20 @@ public class Enemy : MonoBehaviour
     public int speed;
     public bool goingLeft;
 
+    public int health;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        leftPos = leftPoint.transform.position;
-        rightPos = rightPoint.transform.position;
+       // leftPos = leftPoint.transform.position;
+       // rightPos = rightPoint.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Movement(); 
     }
     private void Movement()
     {
@@ -55,4 +58,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void TakeDamage (int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
+    
 }
