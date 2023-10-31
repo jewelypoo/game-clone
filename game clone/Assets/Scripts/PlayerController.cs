@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     //location of where the player respawns to
     private Vector3 startPos;
+
+    private int enemy1Damage =10;
+
+    private bool isInvincible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +61,12 @@ public class PlayerController : MonoBehaviour
         }
 
         HandleJumping();
+
+        if (health <= 0)
+        {
+            Die();
+        }
+        
     }
     private void Die()
     {
@@ -116,9 +127,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.tag == "Enemy")
+        {
+            
+            StartCoroutine(BecomeTemporarilyInvincible());
+            health = health - enemy1Damage;
+        }
     }
 
+    private IEnumerator BecomeTemporarilyInvincible()
+    {
+        Debug.Log("Player Can't Take Damage for 5 Seconds");
+        isInvincible = true;
 
+        yield return new WaitForSeconds(5);
+
+        isInvincible = false;
+        Debug.Log("Player Can Now Take Damage");
+    }
 
     }
