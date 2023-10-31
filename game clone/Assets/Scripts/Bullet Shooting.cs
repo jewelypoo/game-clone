@@ -6,7 +6,7 @@ public class BulletShooting : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
-
+    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,11 @@ public class BulletShooting : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit enemy");
+       Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
         Destroy(this.gameObject);
     }
 
