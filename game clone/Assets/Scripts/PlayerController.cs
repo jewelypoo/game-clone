@@ -131,7 +131,12 @@ public class PlayerController : MonoBehaviour
         {
             
             StartCoroutine(BecomeTemporarilyInvincible());
-           
+        }
+        if ( other.gameObject.tag == "Portal")
+        {
+            //teleporting the player to the Portal's teleport point and setting the player startPos to the teleport point so player respawns at the new startPos
+            transform.position = other.GetComponent<POrtal>().teleportPoint.transform.position;
+            startPos = other.GetComponent<POrtal>().teleportPoint.transform.position;
         }
     }
 

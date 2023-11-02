@@ -10,6 +10,7 @@ TagManager:
   - health
   - Enemy
   - Wall
+  - Portal
   layers:
   - Default
   - TransparentFX
