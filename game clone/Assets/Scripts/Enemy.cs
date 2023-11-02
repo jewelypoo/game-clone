@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public int speed;
     public bool goingLeft;
 
-   
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
@@ -62,9 +62,10 @@ public class Enemy : MonoBehaviour
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
         }
+       
+
+
     }
-
-
 
 
 }

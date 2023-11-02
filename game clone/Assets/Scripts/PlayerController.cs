@@ -68,13 +68,25 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    private void Die()
+
+    
+    public void Die()
     {
-        //check if player has 0 health
-        if (health == 0)
+        if (!isInvincible)
         {
-            SceneManager.LoadScene(2);
+
+            StartCoroutine(BecomeTemporarilyInvincible());
+
+            if (health == 0)
+            {
+                SceneManager.LoadScene(2);
+            }
         }
+        else
+        {
+            Debug.Log("Player is invicible");
+        }
+      
     }
     private void HandleJumping()
     {
@@ -82,8 +94,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             RaycastHit hit;
-
-
 
             //if the raycast returns true then an object has been hit and the player is touching the floor
             //for raycast (startPosition, RayDirection, output the object hit, maximumDistanceForTheRaycastToFire
@@ -129,8 +139,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            
-            StartCoroutine(BecomeTemporarilyInvincible());
+            if (isInvincible == false)
+            {
+                health--;
+            }
+            Die();
         }
         if ( other.gameObject.tag == "Portal")
         {
@@ -140,14 +153,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator BecomeTemporarilyInvincible()
+  IEnumerator BecomeTemporarilyInvincible()
     {
         Debug.Log("Player Can't Take Damage for 5 Seconds");
         isInvincible = true;
 
-        health = health - enemy1Damage;
-
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5f);
 
         isInvincible = false;
         Debug.Log("Player Can Now Take Damage");
