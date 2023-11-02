@@ -131,7 +131,10 @@ public class PlayerController : MonoBehaviour
         {
             
             StartCoroutine(BecomeTemporarilyInvincible());
-           
+        }
+        if ( other.gameObject.tag == "Portal")
+        {
+            transform.position = other.GetComponent<POrtal>().teleportPoint.transform.position;
         }
     }
 
