@@ -6,21 +6,20 @@ using TMPro;
 
 /*
  * [Fain, Jewel / Gibson, Hannah]
- * [10/24/2023]
+ * [11/2/2023]
  * [handles all UI]
  */
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public TMP_Text totalHealthText;
+    public PlayerController PlayerController;
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        totalHealthText.text = "Health: " + PlayerController.health;
     }
 }
