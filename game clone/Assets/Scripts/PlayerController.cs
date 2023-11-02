@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     //location of where the player respawns to
     private Vector3 startPos;
 
-    private int enemy1Damage =10;
+    private int enemy1Damage =1;
 
     private bool isInvincible = false;
 
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             
             StartCoroutine(BecomeTemporarilyInvincible());
-            health = health - enemy1Damage;
+           
         }
     }
 
@@ -139,6 +139,8 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Player Can't Take Damage for 5 Seconds");
         isInvincible = true;
+
+        health = health - enemy1Damage;
 
         yield return new WaitForSeconds(5);
 
