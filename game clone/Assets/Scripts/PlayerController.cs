@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             if (isInvincible == false)
             {
-                health--;
+                health-= 15;
             }
             Die();
         }
