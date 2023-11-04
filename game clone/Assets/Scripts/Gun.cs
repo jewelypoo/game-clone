@@ -5,9 +5,9 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    
-    public Transform firePoint;
 
+    public Transform firePoint;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Shoot();
         }
@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+     
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 }

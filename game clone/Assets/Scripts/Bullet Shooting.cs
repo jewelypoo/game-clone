@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/*
+ * [Fain, Jewel / Gibson, Hannah]
+ * [11/2/2023]
+ * [handles the bullet shooting]
+ */
 public class BulletShooting : MonoBehaviour
 {
     public float speed;
@@ -23,6 +28,7 @@ public class BulletShooting : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
+     
        if (other.gameObject.tag == "Wall")
         {
             Destroy(this.gameObject);
