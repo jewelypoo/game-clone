@@ -10,11 +10,9 @@ using UnityEngine;
 
 public class DisappearingPlatform : MonoBehaviour
 {
-    public float togglePlatformTime = 2;
+    public float timeToToggle = 2;
     public float currentTime = 0;
     public bool enabled = true;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +23,7 @@ public class DisappearingPlatform : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
-        if (currentTime >= togglePlatformTime)
+        if(currentTime>= timeToToggle )
         {
             currentTime = 0;
             TogglePlatform();
@@ -34,7 +32,7 @@ public class DisappearingPlatform : MonoBehaviour
     void TogglePlatform()
     {
         enabled = !enabled;
-        foreach (Transform child in gameObject.transform)
+        foreach(Transform child in gameObject.transform)
         {
             if (child.tag != "Player")
             {
