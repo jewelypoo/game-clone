@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isInvincible = false;
 
+    public bool heavyAttack = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -137,11 +139,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy1")
         {
             if (isInvincible == false)
             {
                 health-= 15;
+            }
+            Die();
+        }
+        if (other.gameObject.tag == "Enemy2")
+        {
+            if (isInvincible == false)
+            {
+                health -= 35;
             }
             Die();
         }
@@ -151,6 +161,13 @@ public class PlayerController : MonoBehaviour
             transform.position = other.GetComponent<POrtal>().teleportPoint.transform.position;
             startPos = other.GetComponent<POrtal>().teleportPoint.transform.position;
         }
+         if ((other.gameObject.tag == "heavyBullets"))
+        {
+           heavyAttack = true;
+           other.gameObject.SetActive(false);
+        }
+
+        
     }
 
   IEnumerator BecomeTemporarilyInvincible()
@@ -164,4 +181,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player Can Now Take Damage");
     }
 
-    }
+   
+
+}

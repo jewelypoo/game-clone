@@ -1,29 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-/*
- * [Fain, Jewel / Gibson, Hannah]
- * [11/2/2023]
- * [handles the bullet shooting]
- */
-public class BulletShooting : MonoBehaviour
+public class HeavyBullets : MonoBehaviour
 {
-    public float speed;
-    public Rigidbody rb;
     public int damage;
+
+    public GameObject HeavyBulletsPickup;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        
     }
 
     // Update is called once per frame
-    
+    void Update()
+    {
+        
+    }
+
     void OnTriggerEnter(Collider other)
     {
-       if(other.gameObject.tag == "Enemy1")
+        if (other.gameObject.tag == "Enemy1")
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             Destroy(this.gameObject);
@@ -38,6 +37,7 @@ public class BulletShooting : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        
     }
 
    

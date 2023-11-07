@@ -58,13 +58,14 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy1")
         {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
         }
-       
-
-
+        if (other.gameObject.tag == "Enemy2")
+        {
+            other.gameObject.GetComponent<EnemyHealth>().TakeDamage(1);
+        }
     }
 
 
