@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
         }
          if ((other.gameObject.tag == "heavyBullets"))
         {
-            SpawnNewBullet();
+            //SpawnNewBullet();
         }
 
         
@@ -177,9 +177,6 @@ public class PlayerController : MonoBehaviour
         isInvincible = false;
         Debug.Log("Player Can Now Take Damage");
     }
-    private void SpawnNewBullet()
-    {
-        GameObject newObject = Instantiate(gameObject);
-    }
+   
 
     }
