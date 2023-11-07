@@ -7,9 +7,11 @@ public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab;
 
+    public GameObject heavyBulletPrefab;
+
     public Transform firePoint;
 
-    public GameObject HeavyBulletsPickup;
+    public PlayerController playerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -28,15 +30,15 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-     
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if ( (other.gameObject.tag == "heavyBullets"))
+        if(playerScript.heavyAttack == true)
         {
-            Instantiate(HeavyBulletsPickup, firePoint.position, firePoint.rotation);
+            Instantiate(heavyBulletPrefab, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
+
+    
 }

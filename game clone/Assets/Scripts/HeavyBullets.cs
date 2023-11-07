@@ -11,7 +11,7 @@ public class HeavyBullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HeavyBulletsPickup.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -37,12 +37,7 @@ public class HeavyBullets : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if(other.gameObject.tag == "Player")
-        {
-            this.gameObject.SetActive(false);
-            HeavyBulletsPickup.SetActive(true);
-
-        }
+        
     }
 
    

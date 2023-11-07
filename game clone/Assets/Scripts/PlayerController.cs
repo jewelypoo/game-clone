@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isInvincible = false;
 
+    public bool heavyAttack = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -161,7 +163,8 @@ public class PlayerController : MonoBehaviour
         }
          if ((other.gameObject.tag == "heavyBullets"))
         {
-            //SpawnNewBullet();
+           heavyAttack = true;
+           other.gameObject.SetActive(false);
         }
 
         
@@ -177,6 +180,7 @@ public class PlayerController : MonoBehaviour
         isInvincible = false;
         Debug.Log("Player Can Now Take Damage");
     }
+
    
 
-    }
+}
