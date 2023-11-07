@@ -137,11 +137,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy1")
         {
             if (isInvincible == false)
             {
                 health-= 15;
+            }
+            Die();
+        }
+        if (other.gameObject.tag == "Enemy2")
+        {
+            if (isInvincible == false)
+            {
+                health -= 35;
             }
             Die();
         }
