@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -7,7 +8,8 @@ public class Gun : MonoBehaviour
     public GameObject bulletPrefab;
 
     public Transform firePoint;
- 
+
+    public GameObject HeavyBulletsPickup;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +30,13 @@ public class Gun : MonoBehaviour
     {
      
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ( (other.gameObject.tag == "heavyBullets"))
+        {
+            Instantiate(HeavyBulletsPickup, firePoint.position, firePoint.rotation);
+        }
     }
 }

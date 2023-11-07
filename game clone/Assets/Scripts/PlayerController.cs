@@ -159,6 +159,12 @@ public class PlayerController : MonoBehaviour
             transform.position = other.GetComponent<POrtal>().teleportPoint.transform.position;
             startPos = other.GetComponent<POrtal>().teleportPoint.transform.position;
         }
+         if ((other.gameObject.tag == "heavyBullets"))
+        {
+            SpawnNewBullet();
+        }
+
+        
     }
 
   IEnumerator BecomeTemporarilyInvincible()
@@ -170,6 +176,10 @@ public class PlayerController : MonoBehaviour
 
         isInvincible = false;
         Debug.Log("Player Can Now Take Damage");
+    }
+    private void SpawnNewBullet()
+    {
+        GameObject newObject = Instantiate(gameObject);
     }
 
     }
