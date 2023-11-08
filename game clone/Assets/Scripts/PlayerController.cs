@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "jumpPack")
         {
             jumpForce = 15f;
+            other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "Enemy1")
         {
