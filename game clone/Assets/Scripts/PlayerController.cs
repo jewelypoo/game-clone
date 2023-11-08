@@ -139,6 +139,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "jumpPack")
+        {
+            jumpForce = 15f;
+        }
         if (other.gameObject.tag == "Enemy1")
         {
             if (isInvincible == false)
