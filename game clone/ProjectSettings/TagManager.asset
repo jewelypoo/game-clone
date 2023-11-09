@@ -13,6 +13,8 @@ TagManager:
   - Portal
   - Enemy1
   - Enemy2
+  - heavyWall
+  - heavyBullet
   layers:
   - Default
   - TransparentFX

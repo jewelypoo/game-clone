@@ -7,5 +7,6 @@ public class Pickups : MonoBehaviour
 
     public GameObject JumpPackPickup;
 
+  
 
 }

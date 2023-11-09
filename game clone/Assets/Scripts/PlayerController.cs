@@ -14,7 +14,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    //this will determine how much health the player has
+    //this will determine how much health the player has 
     public int health = 99;
     //side to side movement speed
     public float speed = 10f;
@@ -139,6 +139,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "health")
+        {
+
+        }
+        if (other.gameObject.tag == "extraHealth")
+        {
+
+        }
         if (other.gameObject.tag == "jumpPack")
         {
             jumpForce = 15f;

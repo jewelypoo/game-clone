@@ -700,6 +700,7 @@ MonoBehaviour:
   jumpForce: 8
   goingLeft: 1
   rotateLeft: 0
+  heavyAttack: 0
 --- !u!114 &3623278604066820470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1063477246943957574, guid: 8574874d314193d4d9927e5f944717f0, type: 3}
+  heavyBulletPrefab: {fileID: 8386045481844453318, guid: fa87706e348f3a947a4f4a52710f5018, type: 3}
   firePoint: {fileID: 8875883867726046685}
+  playerScript: {fileID: 0}
 --- !u!1 &5475502716675947053
 GameObject:
   m_ObjectHideFlags: 0
