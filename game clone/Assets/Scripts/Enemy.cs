@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
      public GameObject leftPoint;
      public GameObject rightPoint;
 
+    
+
     private Vector3 leftPos;
     private Vector3 rightPos;
 

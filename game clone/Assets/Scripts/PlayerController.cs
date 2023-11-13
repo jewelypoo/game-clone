@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private int enemy1Damage =1;
 
     private bool isInvincible = false;
-
+    
     public bool heavyAttack = false;
 
     // Start is called before the first frame update
@@ -141,11 +141,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "health")
         {
-
+            health += other.gameObject.GetComponent<HealthPickups>().addedHealth;
+            other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "extraHealth")
         {
-
+            health = 199;
+            other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "jumpPack")
         {

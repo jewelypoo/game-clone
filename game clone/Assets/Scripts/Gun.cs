@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
 
     public PlayerController playerScript;
 
+    public bool gunCooldown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +34,19 @@ public class Gun : MonoBehaviour
         if(playerScript.heavyAttack == true)
         {
             Instantiate(heavyBulletPrefab, firePoint.position, firePoint.rotation);
+            StartCoroutine(ShootCooldown());
         }
         else
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            StartCoroutine(ShootCooldown());
         }
     }
-
+    public IEnumerator ShootCooldown()
+    {
+        gunCooldown = true;
+        yield return new WaitForSeconds(.5f);
+        gunCooldown = false;
+    }
     
 }
