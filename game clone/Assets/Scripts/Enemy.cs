@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour
     {
         Movement(); 
     }
+    /// <summary>
+    /// allows enemy to move from one point on the left to another on the right
+    /// </summary>
     private void Movement()
     {
         if (goingLeft)

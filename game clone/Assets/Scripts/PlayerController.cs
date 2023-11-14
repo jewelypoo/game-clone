@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     //location of where the player respawns to
     private Vector3 startPos;
 
-    private int enemy1Damage =1;
+    
     //determines if samus can take damage or not
     private bool isInvincible = false;
     //determines whether samus shoots heavy bullets
@@ -71,7 +71,9 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    
+    /// <summary>
+    /// if players health is below 0 then they die
+    /// </summary>
     public void Die()
     {
         if (!isInvincible)
@@ -91,6 +93,9 @@ public class PlayerController : MonoBehaviour
         }
       
     }
+    /// <summary>
+    /// causes player to jump
+    /// </summary>
     private void HandleJumping()
     {
         //handles jumping
@@ -113,6 +118,9 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    /// <summary>
+    /// handles turning of player 
+    /// </summary>
     private void Turning()
     {
         if (goingLeft == false)
@@ -197,6 +205,10 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// player becomes invincible when they hit an enemy for 5 seconds, cannot take damage in that time.
+    /// </summary>
+    /// <returns></returns>
   IEnumerator BecomeTemporarilyInvincible()
     {
         //prevents samus from taking damage

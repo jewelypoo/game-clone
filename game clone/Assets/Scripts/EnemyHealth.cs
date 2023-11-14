@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * [Fain, Jewel / Gibson, Hannah]
+ * [11/5/2023]
+ * [handles heavy bullets]
+ */
 public class EnemyHealth : MonoBehaviour
 {
     public int currentHealth;
@@ -17,6 +21,11 @@ public class EnemyHealth : MonoBehaviour
     {
         
     }
+    /// <summary>
+    /// takes damage when hit with a bullet
+    /// destroyed when health is equalt to 0
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

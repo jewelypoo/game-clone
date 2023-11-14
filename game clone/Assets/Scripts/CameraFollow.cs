@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+ * [Fain, Jewel / Gibson, Hannah]
+ * [11/10/2023]
+ * [handles the camera following the player throughout the levels]
+ */
 public class CameraFollow : MonoBehaviour
 {
     private Vector3 cameraOffset;
