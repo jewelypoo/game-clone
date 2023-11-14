@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 2f;
 
     private Rigidbody rigidbody;
-
+    //player movement
     public bool goingLeft = true;
     public bool rotateLeft = false;
 
@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 startPos;
 
     private int enemy1Damage =1;
-
+    //determines if samus can take damage or not
     private bool isInvincible = false;
-    
+    //determines whether samus shoots heavy bullets
     public bool heavyAttack = false;
 
     // Start is called before the first frame update
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             Turning();
             
         }
-
+        
         HandleJumping();
 
         if (health <= 0)
@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
             if (health <= 0)
             {
+                //sends player to end screen
                 SceneManager.LoadScene(1);
             }
         }
@@ -141,25 +142,30 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "winDoor")
         {
+            //when player collides with door, they win 
             SceneManager.LoadScene(2);
         }
         if (other.gameObject.tag == "health")
         {
+            //when player collides with health add 15 to health
             health += other.gameObject.GetComponent<HealthPickups>().addedHealth;
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "extraHealth")
         {
+            //sets players new health to 199
             health = 199;
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "jumpPack")
         {
+            //doubles players jump height
             jumpForce = 15f;
             other.gameObject.SetActive(false);
         }
         if (other.gameObject.tag == "Enemy1")
         {
+            //player takes 15 health of dmg when colliding with enemy1
             if (isInvincible == false)
             {
                 health-= 15;
@@ -168,6 +174,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy2")
         {
+            //player takes 35 health when colliding with enemy2
             if (isInvincible == false)
             {
                 health -= 35;
@@ -182,6 +189,7 @@ public class PlayerController : MonoBehaviour
         }
          if ((other.gameObject.tag == "heavyBullets"))
         {
+            //enables samus heavy bullets and stays that way for rest of game
            heavyAttack = true;
            other.gameObject.SetActive(false);
         }
@@ -191,6 +199,7 @@ public class PlayerController : MonoBehaviour
 
   IEnumerator BecomeTemporarilyInvincible()
     {
+        //prevents samus from taking damage
         Debug.Log("Player Can't Take Damage for 5 Seconds");
         isInvincible = true;
 
