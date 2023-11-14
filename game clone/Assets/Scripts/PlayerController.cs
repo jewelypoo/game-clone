@@ -139,6 +139,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag) == "winDoor")
+        {
+            SceneManager.LoadScene(2);
+        }
         if (other.gameObject.tag == "health")
         {
             health += other.gameObject.GetComponent<HealthPickups>().addedHealth;
