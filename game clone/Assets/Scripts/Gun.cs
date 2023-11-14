@@ -14,6 +14,7 @@ public class Gun : MonoBehaviour
     public PlayerController playerScript;
 
     public bool gunCooldown = false;
+    public float fireRate;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,11 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Shoot();
+            if (!gunCooldown)
+            {
+                StartCoroutine(ShootCooldown());
+            }
+            
         }
     }
 
@@ -34,19 +39,22 @@ public class Gun : MonoBehaviour
         if(playerScript.heavyAttack == true)
         {
             Instantiate(heavyBulletPrefab, firePoint.position, firePoint.rotation);
-            StartCoroutine(ShootCooldown());
+           
         }
         else
         {
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            StartCoroutine(ShootCooldown());
+            
         }
     }
     public IEnumerator ShootCooldown()
     {
+        Debug.Log("Player can't shoot for 0.5 seconds");
         gunCooldown = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
         gunCooldown = false;
+        Debug.Log("Player can now shoot");
+        Shoot();
     }
     
 }
