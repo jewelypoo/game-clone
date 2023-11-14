@@ -13476,7 +13476,8 @@ PrefabInstance:
       propertyPath: heavyBulletPrefab
       value: 
       objectReference: {fileID: 8386045481844453318, guid: fa87706e348f3a947a4f4a52710f5018, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3623278604066820470, guid: 1ebf5639f8cdef445962c5a02dad10be, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
