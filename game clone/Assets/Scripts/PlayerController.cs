@@ -79,9 +79,9 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(BecomeTemporarilyInvincible());
 
-            if (health == 0)
+            if (health <= 0)
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(1);
             }
         }
         else
