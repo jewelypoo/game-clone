@@ -30,7 +30,7 @@ public class DisappearingPlatform : MonoBehaviour
         }
     }
     /// <summary>
-    /// 
+    /// turns platforms on and off by disabling child objects and turning back on also using set timers
     /// </summary>
     void TogglePlatform()
     {

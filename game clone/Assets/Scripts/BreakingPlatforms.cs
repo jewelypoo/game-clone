@@ -21,6 +21,11 @@ public class BreakingPlatforms : MonoBehaviour
     {
         
     }
+    /// <summary>
+    /// when something collides with one of these platforms the platforms disappear after a second and don't come back
+    /// </summary>
+    /// <param name="coll"></param>
+    /// <returns></returns>
     IEnumerator OnCollisionEnter(Collision coll)
     {
 
