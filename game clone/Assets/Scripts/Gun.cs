@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+/*
+ * [Fain, Jewel / Gibson, Hannah]
+ * [11/2/2023]
+ * [handles the gun and cooldown for bullets]
+ */
 public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab;
@@ -33,7 +37,10 @@ public class Gun : MonoBehaviour
             
         }
     }
-
+    /// <summary>
+    /// Handles the heavy bullets damage.
+    /// instantiates a new heavy bullet that deals increased damage
+    /// </summary>
     void Shoot()
     {
         if(playerScript.heavyAttack == true)
@@ -47,6 +54,10 @@ public class Gun : MonoBehaviour
             
         }
     }
+    /// <summary>
+    /// Handles cooldown for bullet shotting; ie can only shoot twice in a second
+    /// </summary>
+    /// <returns>starts 0.5 second cooldown</returns>
     public IEnumerator ShootCooldown()
     {
         Debug.Log("Player can't shoot for 0.5 seconds");

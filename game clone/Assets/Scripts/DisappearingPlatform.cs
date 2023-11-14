@@ -29,6 +29,9 @@ public class DisappearingPlatform : MonoBehaviour
             TogglePlatform();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     void TogglePlatform()
     {
         enabled = !enabled;
