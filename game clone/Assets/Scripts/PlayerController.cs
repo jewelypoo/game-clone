@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag) == "winDoor")
+        if (other.gameObject.tag == "winDoor")
         {
             SceneManager.LoadScene(2);
         }
